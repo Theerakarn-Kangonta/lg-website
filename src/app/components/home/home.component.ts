@@ -10,35 +10,31 @@ import { AfterViewInit, Component } from '@angular/core';
 })
 export class HomeComponent implements AfterViewInit {
   banners = [
-    { url: 'assets/images/pete1.jpg', link: '/promo/1' },
-    { url: 'assets/images/pete2.jpg', link: '/promo/1' },
+    { url: 'assets/images/12.jpg', link: '/promo/1' },
+    // { url: 'assets/images/pete2.jpg', link: '/promo/1' },
   ];
 
   categories = [
-    { img: 'https://drive.google.com/u/0/drive-viewer/AKGpihYKI1JLHIEbbA2psILhVotCm6RBG_VKXOnUXDDFZNxujRdsCriRkmRbtTqnNaSZO2cEbN95tA_O9jYxYUeS4LlbPaqWXpLFhBo=s1600-rw-v1', name: 'Shoes' },
-    { img: 'assets/cat2.jpg', name: 'Watches' },
-    { img: 'assets/cat2.jpg', name: 'Watches' },
-    { img: 'assets/cat2.jpg', name: 'Watches' },
-    { img: 'assets/cat2.jpg', name: 'Watches' },
-    { img: 'assets/cat2.jpg', name: 'Watches' },
-    { img: 'assets/cat2.jpg', name: 'Watches' },
-    { img: 'assets/cat2.jpg', name: 'Watches' },
-    // ...
+    { img: 'assets/images/water_filter.jpg', name: 'เครื่องกรองน้ำ' },
+    { img: 'assets/images/monitor.jpg', name: 'มอนิเตอร์' },
+    { img: 'assets/images/tv.jpg', name: 'TV' },
+    { img: 'assets/images/vacuum.jpg', name: 'เครื่องดูดฝุ่น' },
+    { img: 'assets/images/dishwasher.jpg', name: 'เครื่องล้างจาน' },
+    { img: 'assets/images/styler.jpg', name: 'เครื่องถนอมผ้า' },
+    { img: 'assets/images/refidge.jpg', name: 'ตู้เย็น' },
+    { img: 'assets/images/washing_machine.jpg', name: 'เครื่องซักผ้า' },
+    { img: 'assets/images/clothes_dryer.jpg', name: 'เครื่องอบผ้า' },
+    { img: 'assets/images/ac.jpg', name: 'เครื่องปรับอากาศ' },
+    { img: 'assets/images/dehumidifier.jpg', name: 'เครื่องลดความชื้น' },
+    { img: 'assets/images/air_purifier.jpg', name: 'เครื่องฟอกอากาศ' },
   ];
 
   products = [
-    { img: 'https://assets.adidas.com/images/w_600,f_auto,q_auto/ede6bb0ae9294625a6f02d8ce1e3e4b2_9366/Own_the_Game_3_Shoes_White_IF4565_01_standard.jpg', name: 'Sneaker X', description: 'Cool and comfy' },
-    { img: 'https://assets.adidas.com/images/w_600,f_auto,q_auto/ede6bb0ae9294625a6f02d8ce1e3e4b2_9366/Own_the_Game_3_Shoes_White_IF4565_01_standard.jpg', name: 'Sneaker X', description: 'Cool and comfy' },
-    { img: 'https://assets.adidas.com/images/w_600,f_auto,q_auto/ede6bb0ae9294625a6f02d8ce1e3e4b2_9366/Own_the_Game_3_Shoes_White_IF4565_01_standard.jpg', name: 'Sneaker X', description: 'Cool and comfy' },
-    { img: 'https://assets.adidas.com/images/w_600,f_auto,q_auto/ede6bb0ae9294625a6f02d8ce1e3e4b2_9366/Own_the_Game_3_Shoes_White_IF4565_01_standard.jpg', name: 'Sneaker X', description: 'Cool and comfy' },
-    { img: 'https://assets.adidas.com/images/w_600,f_auto,q_auto/ede6bb0ae9294625a6f02d8ce1e3e4b2_9366/Own_the_Game_3_Shoes_White_IF4565_01_standard.jpg', name: 'Sneaker X', description: 'Cool and comfy' },
-    { img: 'https://assets.adidas.com/images/w_600,f_auto,q_auto/ede6bb0ae9294625a6f02d8ce1e3e4b2_9366/Own_the_Game_3_Shoes_White_IF4565_01_standard.jpg', name: 'Sneaker X', description: 'Cool and comfy' },
-    { img: 'https://assets.adidas.com/images/w_600,f_auto,q_auto/ede6bb0ae9294625a6f02d8ce1e3e4b2_9366/Own_the_Game_3_Shoes_White_IF4565_01_standard.jpg', name: 'Sneaker X', description: 'Cool and comfy' },
-    { img: 'https://assets.adidas.com/images/w_600,f_auto,q_auto/ede6bb0ae9294625a6f02d8ce1e3e4b2_9366/Own_the_Game_3_Shoes_White_IF4565_01_standard.jpg', name: 'Sneaker X', description: 'Cool and comfy' },
-    { img: 'https://assets.adidas.com/images/w_600,f_auto,q_auto/ede6bb0ae9294625a6f02d8ce1e3e4b2_9366/Own_the_Game_3_Shoes_White_IF4565_01_standard.jpg', name: 'Sneaker X', description: 'Cool and comfy' },
-    { img: 'https://assets.adidas.com/images/w_600,f_auto,q_auto/ede6bb0ae9294625a6f02d8ce1e3e4b2_9366/Own_the_Game_3_Shoes_White_IF4565_01_standard.jpg', name: 'Sneaker X', description: 'Cool and comfy' },
-    { img: 'https://assets.adidas.com/images/w_600,f_auto,q_auto/ede6bb0ae9294625a6f02d8ce1e3e4b2_9366/Own_the_Game_3_Shoes_White_IF4565_01_standard.jpg', name: 'Sneaker X', description: 'Cool and comfy' },
-    { img: 'https://assets.adidas.com/images/w_600,f_auto,q_auto/ede6bb0ae9294625a6f02d8ce1e3e4b2_9366/Own_the_Game_3_Shoes_White_IF4565_01_standard.jpg', name: 'Sneaker X', description: 'Cool and comfy' },
+    { img: 'assets/images/water_filter2.jpg', name: 'เครื่องกรองน้ำ', description: 'ผ่อนเดือนละ 599.-' },
+    { img: 'assets/images/washing_machine.jpg', name: 'เครื่องซักผ้า', description: 'ผ่อนเดือนละ 799.-' },
+    { img: 'assets/images/clothes_dryer.jpg', name: 'เครื่องอบผ้า', description: 'ผ่อนเดือนละ 999.-' },
+    { img: 'assets/images/tv.jpg', name: 'TV', description: 'ผ่อนเดือนละ 999.-' },
+
     // ...
   ];
 

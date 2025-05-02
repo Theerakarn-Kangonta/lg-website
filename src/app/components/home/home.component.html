@@ -16,7 +16,7 @@
     <div class="category-track">
       <div *ngFor="let cat of categories" class="category-item">
         <img [src]="cat.img" />
-        <p>{{ cat.name }}</p>
+        <div>{{ cat.name }}</div>
       </div>
     </div>
   </section>
@@ -27,7 +27,7 @@
       <div class="card-content">
         <img [src]="product.img" />
         <h3>{{ product.name }}</h3>
-        <p>{{ product.description }}</p>
+        <div style="color: red;font-weight: 700;">{{ product.description }}</div>
       </div>
     </div>
   </section>
