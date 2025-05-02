@@ -10,8 +10,8 @@ import { AfterViewInit, Component } from '@angular/core';
 })
 export class HomeComponent implements AfterViewInit {
   banners = [
-    { url: 'https://scontent.fbkk6-2.fna.fbcdn.net/v/t39.30808-6/492751744_1151676783669942_7319709361417283664_n.jpg?_nc_cat=1&ccb=1-7&_nc_sid=0b6b33&_nc_ohc=zLIDL-u5XCQQ7kNvwGDSzZw&_nc_oc=AdnZElxNWs4gTLZg3Jvr9XLunrdo3jfPFp7yitnFDRzpWdcYc431wGQ_ea5yrBP3_2s&_nc_zt=23&_nc_ht=scontent.fbkk6-2.fna&_nc_gid=m5qxRnNQpRJvXqPf0xufUg&oh=00_AfHCXPAo68oOF1F6qocofXqTfS1LOFD33Bx0dLR4v43PiQ&oe=6816B248', link: '/promo/1' },
-    { url: 'https://scontent.fbkk6-2.fna.fbcdn.net/v/t39.30808-6/492751744_1151676783669942_7319709361417283664_n.jpg?_nc_cat=1&ccb=1-7&_nc_sid=0b6b33&_nc_ohc=zLIDL-u5XCQQ7kNvwGDSzZw&_nc_oc=AdnZElxNWs4gTLZg3Jvr9XLunrdo3jfPFp7yitnFDRzpWdcYc431wGQ_ea5yrBP3_2s&_nc_zt=23&_nc_ht=scontent.fbkk6-2.fna&_nc_gid=m5qxRnNQpRJvXqPf0xufUg&oh=00_AfHCXPAo68oOF1F6qocofXqTfS1LOFD33Bx0dLR4v43PiQ&oe=6816B248', link: '/promo/1' },
+    { url: 'assets/images/pete1.jpg', link: '/promo/1' },
+    { url: 'assets/images/pete2.jpg', link: '/promo/1' },
   ];
 
   categories = [
