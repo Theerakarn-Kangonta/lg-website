@@ -1,15 +1,15 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "dist/your-app-name/**/*",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
-  ]
-}
+    "version": 2,
+    "builds": [
+      {
+        "src": "dist/lg-website/**/*",
+        "use": "@vercel/static"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "/index.html"
+      }
+    ]
+  }
