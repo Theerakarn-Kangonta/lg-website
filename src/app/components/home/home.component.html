@@ -1,0 +1,41 @@
+<!-- Sticky Search Bar -->
+<header class="search-bar">
+    <input type="text" placeholder="Search..." />
+  </header>
+  
+  <!-- Auto-scrolling Banner -->
+  <section class="banner-section">
+    <div class="banner-track">
+      <img *ngFor="let banner of banners" [src]="banner.url" alt="banner" (click)="navigateTo(banner.link)" />
+    </div>
+  </section>
+  
+  <!-- Product Categories -->
+  <section class="category-section">
+    <div class="category-track">
+      <div *ngFor="let cat of categories" class="category-item">
+        <img [src]="cat.img" />
+        <p>{{ cat.name }}</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Product Cards with Animation on Scroll -->
+  <section class="product-section">
+    <div *ngFor="let product of products" class="product-card">
+      <div class="card-content">
+        <img [src]="product.img" />
+        <h3>{{ product.name }}</h3>
+        <p>{{ product.description }}</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Sticky Bottom Navigation -->
+  <footer class="bottom-nav">
+    <button *ngFor="let nav of navLinks" (click)="navigateTo(nav.route)">
+      <i [class]="nav.icon"></i>
+      <div>{{ nav.label }}</div>
+    </button>
+  </footer>
+  
