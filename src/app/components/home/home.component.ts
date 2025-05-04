@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -9,8 +9,21 @@ import { AfterViewInit, Component } from '@angular/core';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent implements AfterViewInit {
+  activeIndex = 0;
+  isDragging = false;
+  isPaused = false;
+  private startX = 0;
+  private scrollLeft = 0;
+  private categorySectionEl!: HTMLElement;
+  @ViewChild('categorySection', { static: true }) set section(el: ElementRef | undefined) {
+    this.categorySectionEl = el?.nativeElement ?? null;
+  }
+  @ViewChild('bannerTrack') bannerTrackRef!: ElementRef;
+
   banners = [
-    { url: 'assets/images/12.jpg', link: '/promo/1' },
+    { url: 'assets/images/ปก3.jpg', link: '/promo/1' },
+    { url: 'assets/images/ปก3.jpg', link: '/promo/1' },
+    { url: 'assets/images/ปก3.jpg', link: '/promo/1' },
     // { url: 'assets/images/pete2.jpg', link: '/promo/1' },
   ];
 
@@ -45,11 +58,68 @@ export class HomeComponent implements AfterViewInit {
     { label: 'Connect', icon: 'fas fa-users', route: '/connections' },
   ];
 
-  navigateTo(url: string) {
-    // Implement router navigation
-  }
+
 
   ngAfterViewInit() {
-    // Optional: use IntersectionObserver for scroll animations
+    this.onBannerScroll(); // set initial index
+  }
+  onBannerScroll(): void {
+    const track = this.bannerTrackRef.nativeElement;
+    const scrollLeft = track.scrollLeft;
+    const bannerWidth = track.offsetWidth;
+    const index = Math.round(scrollLeft / bannerWidth);
+    this.activeIndex = index;
+  }
+
+  scrollToBanner(index: number): void {
+    this.activeIndex = index;
+
+    const element = document.getElementById('banner-' + index);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        inline: 'start',
+        block: 'nearest'  // 👈 prevents vertical scroll
+      });
+    }
+  }
+
+  navigateTo(link: string): void {
+    // your existing navigation logic
+  }
+  pauseScroll() {
+    this.isPaused = true;
+  }
+
+  resumeScroll() {
+    this.isPaused = false;
+  }
+
+
+  startDrag(event: TouchEvent | MouseEvent) {
+    if (!this.categorySectionEl) return;
+    this.isDragging = true;
+    this.isPaused = true;
+    this.startX = this.getX(event) + this.categorySectionEl.scrollLeft;
+  
+    if (event.cancelable) {
+      event.preventDefault();
+    }
+  }
+  
+  onDrag(event: TouchEvent | MouseEvent) {
+    if (!this.isDragging) return;
+    const x = this.getX(event);
+    const walk = this.startX - x;
+    this.categorySectionEl.scrollLeft = walk;
+  }
+  
+  endDrag() {
+    this.isDragging = false;
+    this.isPaused = false;
+  }
+  
+  getX(event: MouseEvent | TouchEvent): number {
+    return event instanceof TouchEvent ? event.touches[0].clientX : event.clientX;
   }
 }
