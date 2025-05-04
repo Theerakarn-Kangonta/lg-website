@@ -188,6 +188,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+
 }
 
 .card-content img {
@@ -211,6 +213,28 @@
   font-weight: 700;
 }
 
+.best-sales-label {
+  display: inline-block;
+  background: linear-gradient(135deg, #ff6a00, #ee0979);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 600;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  text-align: center;
+  margin: 1rem auto;         /* Auto side margins = center */
+  animation: pulse-glow 2s infinite ease-in-out;
+  display: block;            /* Make it block-level to honor margin auto */
+  width: fit-content;
+}
+
+/* Optional glow animation */
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 8px rgba(255, 100, 0, 0.4); }
+  50% { box-shadow: 0 0 16px rgba(255, 100, 0, 0.8); }
+  100% { box-shadow: 0 0 8px rgba(255, 100, 0, 0.4); }
+}
 /* Bottom Navigation */
 .bottom-nav {
   position: sticky;
@@ -268,4 +292,31 @@
   .bottom-nav {
     height: 6vh;
   }
+}
+
+
+.ribbon {
+  width: 110px;
+  height: 110px;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.ribbon span {
+  position: absolute;
+  display: block;
+  width: 160px;
+  padding: 8px 0;
+  background: linear-gradient(135deg, #ff6a00, #ee0979);
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+  transform: rotate(45deg);
+  top: 25px;
+  right: -40px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+  font-size: 15px;
 }

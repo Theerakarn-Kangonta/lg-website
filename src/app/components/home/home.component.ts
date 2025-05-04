@@ -43,10 +43,10 @@ export class HomeComponent implements AfterViewInit {
   ];
 
   products = [
-    { img: 'assets/images/water_filter2.jpg', name: 'เครื่องกรองน้ำ', description: 'ผ่อนเดือนละ 599.-' },
-    { img: 'assets/images/washing_machine.jpg', name: 'เครื่องซักผ้า', description: 'ผ่อนเดือนละ 799.-' },
-    { img: 'assets/images/clothes_dryer.jpg', name: 'เครื่องอบผ้า', description: 'ผ่อนเดือนละ 999.-' },
-    { img: 'assets/images/tv.jpg', name: 'TV', description: 'ผ่อนเดือนละ 999.-' },
+    { img: 'assets/images/water_filter2.jpg', name: 'เครื่องกรองน้ำ', description: 'ผ่อนเดือนละ 599.-', price: '599.-' ,bestSale: true},
+    { img: 'assets/images/washing_machine.jpg', name: 'เครื่องซักผ้า', description: 'ผ่อนเดือนละ 799.-', price: '799.-',bestSale: true  },
+    { img: 'assets/images/clothes_dryer.jpg', name: 'เครื่องอบผ้า', description: 'ผ่อนเดือนละ 999.-', price: '999.-',bestSale: true },
+    { img: 'assets/images/tv.jpg', name: 'TV', description: 'ผ่อนเดือนละ 999.-', price: '999.-',bestSale: true },
 
     // ...
   ];
@@ -121,5 +121,8 @@ export class HomeComponent implements AfterViewInit {
   
   getX(event: MouseEvent | TouchEvent): number {
     return event instanceof TouchEvent ? event.touches[0].clientX : event.clientX;
+  }
+  get hasBestProducts(): boolean {
+    return this.products.some(p => p.bestSale);
   }
 }
