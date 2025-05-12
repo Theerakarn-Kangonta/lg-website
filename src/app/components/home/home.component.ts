@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,6 +10,10 @@ import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent implements AfterViewInit {
+  
+  constructor( public router: Router) {
+   
+  }
   activeIndex = 0;
   isDragging = false;
   isPaused = false;
@@ -21,9 +26,11 @@ export class HomeComponent implements AfterViewInit {
   @ViewChild('bannerTrack') bannerTrackRef!: ElementRef;
 
   banners = [
-    { url: 'assets/images/ปก3.jpg', link: '/promo/1' },
-    { url: 'assets/images/ปก3.jpg', link: '/promo/1' },
-    { url: 'assets/images/ปก3.jpg', link: '/promo/1' },
+      { url: 'assets/images/ปก4.jpg', link: '/promo/1' },
+      { url: 'assets/images/ปก4.jpg', link: '/promo/1' },
+      { url: 'assets/images/ปก4.jpg', link: '/promo/1' },
+      { url: 'assets/images/ปก4.jpg', link: '/promo/1' },
+      { url: 'assets/images/ปก4.jpg', link: '/promo/1' },
     // { url: 'assets/images/pete2.jpg', link: '/promo/1' },
   ];
 
@@ -43,9 +50,9 @@ export class HomeComponent implements AfterViewInit {
   ];
 
   products = [
-    { img: 'assets/images/water_filter2.jpg', name: 'เครื่องกรองน้ำ', description: 'ผ่อนเดือนละ 599.-', price: '599.-' ,bestSale: true},
-    { img: 'assets/images/washing_machine.jpg', name: 'เครื่องซักผ้า', description: 'ผ่อนเดือนละ 799.-', price: '799.-',bestSale: true  },
-    { img: 'assets/images/clothes_dryer.jpg', name: 'เครื่องอบผ้า', description: 'ผ่อนเดือนละ 999.-', price: '999.-',bestSale: true },
+    { img: 'assets/images/water_filter2.jpg', name: 'เครื่องกรองน้ำ', description: 'ผ่อนเดือนละ 399.-', price: '399.-' ,bestSale: true},
+    { img: 'assets/images/washing_machine.jpg', name: 'เครื่องซักผ้า', description: 'ผ่อนเดือนละ 1399.-', price: '1399.-',bestSale: true  },
+    { img: 'assets/images/refidge.jpg', name: 'ตู้เย็น', description: 'ผ่อนเดือนละ 349.-', price: '349.-',bestSale: true },
     { img: 'assets/images/tv.jpg', name: 'TV', description: 'ผ่อนเดือนละ 999.-', price: '999.-',bestSale: true },
 
     // ...
@@ -54,10 +61,9 @@ export class HomeComponent implements AfterViewInit {
   navLinks = [
     { label: 'Home', icon: 'fas fa-home', route: '/home' },
     { label: 'Products', icon: 'fas fa-box', route: '/products' },
-    { label: 'Review', icon: 'fas fa-star', route: '/reviews' },
+    { label: 'Review', icon: 'fas fa-star', route: 'reviews' },
     { label: 'Connect', icon: 'fas fa-users', route: '/connections' },
   ];
-
 
 
   ngAfterViewInit() {
@@ -85,6 +91,7 @@ export class HomeComponent implements AfterViewInit {
   }
 
   navigateTo(link: string): void {
+    this.router.navigate([link]);
     // your existing navigation logic
   }
   pauseScroll() {
