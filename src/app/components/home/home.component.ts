@@ -35,18 +35,18 @@ export class HomeComponent implements AfterViewInit {
   ];
 
   categories = [
-    { img: 'assets/images/water_filter.jpg', name: 'เครื่องกรองน้ำ' },
-    { img: 'assets/images/monitor.jpg', name: 'มอนิเตอร์' },
-    { img: 'assets/images/tv.jpg', name: 'TV' },
-    { img: 'assets/images/vacuum.jpg', name: 'เครื่องดูดฝุ่น' },
-    { img: 'assets/images/dishwasher.jpg', name: 'เครื่องล้างจาน' },
-    { img: 'assets/images/styler.jpg', name: 'เครื่องถนอมผ้า' },
-    { img: 'assets/images/refidge.jpg', name: 'ตู้เย็น' },
-    { img: 'assets/images/washing_machine.jpg', name: 'เครื่องซักผ้า' },
-    { img: 'assets/images/clothes_dryer.jpg', name: 'เครื่องอบผ้า' },
-    { img: 'assets/images/ac.jpg', name: 'เครื่องปรับอากาศ' },
-    { img: 'assets/images/dehumidifier.jpg', name: 'เครื่องลดความชื้น' },
-    { img: 'assets/images/air_purifier.jpg', name: 'เครื่องฟอกอากาศ' },
+    { img: 'assets/images/water_filter.png', name: 'เครื่องกรองน้ำ' },
+    { img: 'assets/images/monitor.png', name: 'มอนิเตอร์' },
+    { img: 'assets/images/tv.png', name: 'TV' },
+    { img: 'assets/images/vacuum.png', name: 'เครื่องดูดฝุ่น' },
+    { img: 'assets/images/dishwasher.png', name: 'เครื่องล้างจาน' },
+    { img: 'assets/images/styler.png', name: 'เครื่องถนอมผ้า' },
+    { img: 'assets/images/refidge.png', name: 'ตู้เย็น' },
+    { img: 'assets/images/washing_machine.png', name: 'เครื่องซักผ้า' },
+    { img: 'assets/images/clothes_dryer.png', name: 'เครื่องอบผ้า' },
+    { img: 'assets/images/ac.png', name: 'เครื่องปรับอากาศ' },
+    { img: 'assets/images/dehumidifier.png', name: 'เครื่องลดความชื้น' },
+    { img: 'assets/images/air_purifier.png', name: 'เครื่องฟอกอากาศ' },
   ];
 
   products = [
