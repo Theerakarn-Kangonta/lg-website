@@ -2,12 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from '../models/product';
+import { environment } from '../../environment/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HomeService {
-  private apiUrl = 'https://localhost:7239/api'; // adjust for your API
+  private apiUrl = environment.apiUrl;; // adjust for your API
   constructor(private http: HttpClient) {}
 
   getAll(): Observable<any> {
@@ -23,5 +24,9 @@ export class HomeService {
 
   delete(id: any): Observable<any> {
     return this.http.delete<void>(`${this.apiUrl} + '/product' ${id}`);
+  }
+   uploadProductImage(formData: FormData) {
+    // POST to backend endpoint that handles file upload
+    return this.http.post<{ imageUrl: string }>(`${this.apiUrl}/upload-image`, formData);
   }
 }

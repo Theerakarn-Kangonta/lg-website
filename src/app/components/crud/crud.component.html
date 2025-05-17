@@ -1,22 +1,26 @@
-    <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Detail</th>
-                <th>Category Group</th>
-                <th>Image</th>
-                <th>Price</th>
-                <th>Month Subscription</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let product of productsItems">
-                <td>{{ product.name }}</td>
-                <td>{{ product.detail }}</td>
-                <td>{{ product.categoryGroup }}</td>
-                <td>{{ product.imageUrl }}</td>
-                <td>{{ product.price }}</td>
-                <td>{{ product.monthSubscription }}</td>
-            </tr>
-        </tbody>
-    </table>
+<div class="rose-table-container">
+  <table class="rose-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Detail</th>
+        <th>Category</th>
+        <th>Image</th>
+        <th>Price</th>
+        <th>Subscription</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of productsItems">
+        <td>{{ product.name }}</td>
+        <td>{{ product.detail }}</td>
+        <td>{{ product.categoryGroup }}</td>
+        <td>
+          <img [src]="product.imageUrl" alt="Product Image" class="rose-img" />
+        </td>
+        <td>{{ product.price | currency }}</td>
+        <td>{{ product.monthSubscription }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
