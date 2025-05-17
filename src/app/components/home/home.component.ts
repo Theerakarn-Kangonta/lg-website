@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { HomeService } from '../../services/home.service';
 
 @Component({
   selector: 'app-home',
@@ -11,9 +12,12 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements AfterViewInit {
   
-  constructor( public router: Router) {
+  constructor( public router: Router,
+    private _homeService: HomeService
+  ) {
    
   }
+
   activeIndex = 0;
   isDragging = false;
   isPaused = false;
@@ -24,7 +28,7 @@ export class HomeComponent implements AfterViewInit {
     this.categorySectionEl = el?.nativeElement ?? null;
   }
   @ViewChild('bannerTrack') bannerTrackRef!: ElementRef;
-
+  productsItems = [];
   banners = [
       { url: 'assets/images/ปก4.jpg', link: '/promo/1' },
       { url: 'assets/images/ปก4.jpg', link: '/promo/1' },
@@ -33,7 +37,7 @@ export class HomeComponent implements AfterViewInit {
       { url: 'assets/images/ปก4.jpg', link: '/promo/1' },
     // { url: 'assets/images/pete2.jpg', link: '/promo/1' },
   ];
-
+  
   categories = [
     { img: 'assets/images/water_filter.png', name: 'เครื่องกรองน้ำ' },
     { img: 'assets/images/monitor.png', name: 'มอนิเตอร์' },
@@ -66,6 +70,15 @@ export class HomeComponent implements AfterViewInit {
   ];
 
 
+  ngOnInit(): void {
+    this.loadProducts();
+  }
+  loadProducts() {
+    this._homeService.getAll().subscribe((data) => {
+      console.log(data);
+      this.productsItems = data
+    });
+  }
   ngAfterViewInit() {
     this.onBannerScroll(); // set initial index
   }
