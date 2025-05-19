@@ -33,5 +33,9 @@ products = [
     { name: 'แอร์อินเวอร์เตอร์ 21,800 BTU รุ่น IEQ24E LG DUALCOOL Prime', price: 29.99, imageUrl: 'assets/images/product21.jpg' },  
     // Add more products here
   ];
+  
+  goToUrl(url: string) {
+
+  }
 }
 

@@ -1,26 +1,112 @@
-<div class="rose-table-container">
-  <table class="rose-table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Detail</th>
-        <th>Category</th>
-        <th>Image</th>
-        <th>Price</th>
-        <th>Subscription</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let product of productsItems">
-        <td>{{ product.name }}</td>
-        <td>{{ product.detail }}</td>
-        <td>{{ product.categoryGroup }}</td>
-        <td>
-          <img [src]="product.imageUrl" alt="Product Image" class="rose-img" />
-        </td>
-        <td>{{ product.price | currency }}</td>
-        <td>{{ product.monthSubscription }}</td>
-      </tr>
-    </tbody>
-  </table>
+<div class="custom-modal-backdrop" *ngIf="showModal">
+  <div class="custom-modal">
+    <h2>Add Product</h2>
+    <form
+      [formGroup]="productForm"
+      (ngSubmit)="addProduct()"
+      class="modal-form"
+    >
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input id="name" formControlName="name" placeholder="Name" />
+      </div>
+
+      <div class="form-group">
+        <label for="detail">Detail</label>
+        <textarea
+          id="detail"
+          formControlName="detail"
+          placeholder="Detail"
+          rows="4"
+        ></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="categoryGroup">Category</label>
+        <select id="categoryGroup" formControlName="categoryGroup">
+          <option *ngFor="let category of categories" [value]="category.value">
+            {{ category.label }}  
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="imageFile">Upload Image</label>
+        <input
+          type="file"
+          id="imageFile"
+          (change)="onFileSelected($event)"
+          accept="image/*"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input
+          id="price"
+          type="number"
+          formControlName="price"
+          placeholder="Price"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="monthSubscription">Subscription (months)</label>
+        <input
+          id="monthSubscription"
+          type="number"
+          formControlName="monthSubscription"
+          placeholder="Subscription (months)"
+        />
+      </div>
+
+      <div class="modal-actions">
+        <button type="submit" >Save</button>
+        <button type="button" (click)="showModal = false">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h2>Product List</h2>
+    <button (click)="showModal = true">Add New Product</button>
+  </div>
+  <div class="card-body">
+    <table class="rose-table">
+      <thead>
+        <tr>
+          <th>Action</th>
+          <th>Name</th>
+          <th>Detail</th>
+          <th>Category</th>
+          <th>Image</th>
+          <th>Price</th>
+          <th>Subscription</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of productsItems">
+          <td>
+            <button class="open-modal-btn" (click)="showModal = true">
+              Edit Product
+            </button>
+          </td>
+          <td>{{ product.name }}</td>
+          <td>{{ product.detail }}</td>
+          <td>{{ product.categoryGroup }}</td>
+          <td>
+            <img
+              [src]="product.imageUrl"
+              alt="Product Image"
+              class="rose-img"
+            />
+          </td>
+          <td>{{ product.price | currency }}</td>
+          <td>{{ product.monthSubscription }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
