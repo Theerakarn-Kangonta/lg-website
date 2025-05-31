@@ -10,11 +10,12 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  height: 8vh;
   background: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
+  height: 35px; /* Fixed height instead of 8vh */
+
   padding: 0 1rem;
 }
 
@@ -23,10 +24,11 @@
   padding: 0.5rem 1rem;
   border-radius: 999px;
   border: 1px solid #ccc;
-  font-size: clamp(14px, 2vw, 18px);
+  height: 25px; /* Fixed height instead of 8vh */
+  font-size: 1rem; /* ~16px, better than clamp(...) for zoom stability */
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-}
 
+}
 /* Banner Section */
 .banner-section {
   height: 25vh;
@@ -239,7 +241,7 @@
   position: sticky;
   bottom: 0;
   z-index: 1000;
-  height: 8vh;
+  height: 35px; /* Fixed height instead of 8vh */
   background: white;
   display: flex;
   justify-content: space-around;
@@ -261,35 +263,20 @@
 }
 
 .bottom-nav i {
-  font-size: clamp(16px, 2.5vw, 20px);
-}
+  font-size: 1.25rem; /* ~20px */
+} 
 
-/* Media Queries */
-@media (min-width: 768px) {
-  .banner-section {
-    height: 30vh;
-  }
-
-  .category-item {
-    width: 120px;
-  }
-
-  .product-section {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
-
-  .card-content img {
-    max-height: 200px;
-  }
-}
-
+/* Large screens (desktops) */
 @media (min-width: 1024px) {
-  .search-bar {
-    height: 6vh;
-  }
-
+  .search-bar,
   .bottom-nav {
-    height: 6vh;
+    height: 56px; /* Slightly smaller to reveal more content */
+  }
+}
+@media (min-width: 1024px) {
+  .search-bar,
+  .bottom-nav {
+    height: 3.5rem; /* ~56px */
   }
 }
 
