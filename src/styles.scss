@@ -36,10 +36,11 @@ $lg-website-theme: mat.define-light-theme((
 @include mat.all-component-themes($lg-website-theme);
 
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Sarabun&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;600;700&display=swap');
 body {
-  font-family: 'Sarabun', sans-serif !important;
+  font-family: 'Sarabun', sans-serif;
+  // font-family: 'Noto Sans Thai', sans-serif;
   overflow-x: hidden;
 
 }

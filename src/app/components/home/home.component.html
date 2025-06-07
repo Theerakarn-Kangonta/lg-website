@@ -9,53 +9,33 @@
     <section class="banner-section">
       <div class="banner-wrapper" style="background: transparent !important">
         <div class="banner-track" #bannerTrack (scroll)="onBannerScroll()">
-          <img
-            *ngFor="let banner of banners; let i = index"
-            [src]="banner.url"
-            alt="banner"
-            (click)="navigateTo(banner.link)"
-            [id]="'banner-' + i"
-          />
+          <img *ngFor="let banner of banners; let i = index" [src]="banner.url" alt="banner"
+            (click)="navigateTo(banner.link)" [id]="'banner-' + i" />
         </div>
       </div>
 
       <!-- Dots BELOW the banner, but still in the section -->
       <div class="dots-container">
-        <span
-          *ngFor="let banner of banners; let i = index"
-          class="dot"
-          [class.active]="i === activeIndex"
-          (click)="scrollToBanner(i)"
-        ></span>
+        <span *ngFor="let banner of banners; let i = index" class="dot" [class.active]="i === activeIndex"
+          (click)="scrollToBanner(i)"></span>
       </div>
     </section>
 
     <!-- Product Categories -->
-    <section
-      #categorySection
-      class="category-section"
-      (touchstart)="startDrag($event)"
-      (touchmove)="onDrag($event)"
-      (touchend)="endDrag()"
-      (mousedown)="startDrag($event)"
-      (mousemove)="onDrag($event)"
-      (mouseup)="endDrag()"
-      (mouseleave)="endDrag()"
-      [class.dragging]="isDragging"
-    >
+    <section #categorySection class="category-section" (touchstart)="startDrag($event)" (touchmove)="onDrag($event)"
+      (touchend)="endDrag()" (mousedown)="startDrag($event)" (mousemove)="onDrag($event)" (mouseup)="endDrag()"
+      (mouseleave)="endDrag()" [class.dragging]="isDragging">
       <div class="category-slider" [class.paused]="isPaused || isDragging">
-        <div
-          class="category-track"
-          *ngFor="
+        <div class="category-track" *ngFor="
             let repeat of [
               1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
               20, 21, 22, 23
             ]
-          "
-        >
-          <div *ngFor="let cat of categories" class="category-item"  >
-            <img [src]="cat.img" />
-            <div>{{ cat.name }}</div>
+          ">
+          <div *ngFor="let cat of categories" class="category-item">
+              <img [src]="cat.img" />
+              <div>{{ cat.name }}</div>
+
           </div>
         </div>
       </div>

@@ -11,11 +11,11 @@ import { HomeService } from '../../services/home.service';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent implements AfterViewInit {
-  
-  constructor( public router: Router,
+
+  constructor(public router: Router,
     private _homeService: HomeService
   ) {
-   
+
   }
 
   activeIndex = 0;
@@ -30,14 +30,14 @@ export class HomeComponent implements AfterViewInit {
   @ViewChild('bannerTrack') bannerTrackRef!: ElementRef;
   productsItems = [];
   banners = [
-      { url: 'assets/images/ปก4.jpg', link: '/promo/1' },
-      { url: 'assets/images/ปก4.jpg', link: '/promo/1' },
-      { url: 'assets/images/ปก4.jpg', link: '/promo/1' },
-      { url: 'assets/images/ปก4.jpg', link: '/promo/1' },
-      { url: 'assets/images/ปก4.jpg', link: '/promo/1' },
+    { url: 'assets/images/ปก4.jpg', link: '/promo/1' },
+    { url: 'assets/images/ปก4.jpg', link: '/promo/1' },
+    { url: 'assets/images/ปก4.jpg', link: '/promo/1' },
+    { url: 'assets/images/ปก4.jpg', link: '/promo/1' },
+    { url: 'assets/images/ปก4.jpg', link: '/promo/1' },
     // { url: 'assets/images/pete2.jpg', link: '/promo/1' },
   ];
-  
+
   categories = [
     { img: 'assets/images/water_filter.png', name: 'เครื่องกรองน้ำ' },
     { img: 'assets/images/monitor.png', name: 'มอนิเตอร์' },
@@ -54,10 +54,10 @@ export class HomeComponent implements AfterViewInit {
   ];
 
   products = [
-    { img: 'assets/images/water_filter2.jpg', name: 'เครื่องกรองน้ำ', description: 'ผ่อนเดือนละ 399.-', price: '399.-' ,bestSale: true},
-    { img: 'assets/images/washing_machine.jpg', name: 'เครื่องซักผ้า', description: 'ผ่อนเดือนละ 1399.-', price: '1399.-',bestSale: true  },
-    { img: 'assets/images/refidge.jpg', name: 'ตู้เย็น', description: 'ผ่อนเดือนละ 349.-', price: '349.-',bestSale: true },
-    { img: 'assets/images/tv.jpg', name: 'TV', description: 'ผ่อนเดือนละ 999.-', price: '999.-',bestSale: true },
+    { img: 'assets/images/water_filter2.jpg', name: 'เครื่องกรองน้ำ', description: 'ผ่อนเดือนละ 399.-', price: '399.-', bestSale: true },
+    { img: 'assets/images/washing_machine.jpg', name: 'เครื่องซักผ้า', description: 'ผ่อนเดือนละ 1399.-', price: '1399.-', bestSale: true },
+    { img: 'assets/images/refidge.jpg', name: 'ตู้เย็น', description: 'ผ่อนเดือนละ 349.-', price: '349.-', bestSale: true },
+    { img: 'assets/images/tv.jpg', name: 'TV', description: 'ผ่อนเดือนละ 999.-', price: '999.-', bestSale: true },
 
     // ...
   ];
@@ -121,28 +121,42 @@ export class HomeComponent implements AfterViewInit {
     this.isDragging = true;
     this.isPaused = true;
     this.startX = this.getX(event) + this.categorySectionEl.scrollLeft;
-  
+
     if (event.cancelable) {
       event.preventDefault();
     }
   }
-  
+
   onDrag(event: TouchEvent | MouseEvent) {
     if (!this.isDragging) return;
+
+    // Set pause state while dragging
+    this.isPaused = true;
+
     const x = this.getX(event);
     const walk = this.startX - x;
     this.categorySectionEl.scrollLeft = walk;
   }
-  
+
   endDrag() {
     this.isDragging = false;
-    this.isPaused = false;
+
+    // Delay unpausing for 5 seconds
+    if (this.isPaused) {
+      setTimeout(() => {
+        this.isPaused = false;
+      }, 2000);
+    }
+
   }
-  
+
   getX(event: MouseEvent | TouchEvent): number {
     return event instanceof TouchEvent ? event.touches[0].clientX : event.clientX;
   }
   get hasBestProducts(): boolean {
     return this.products.some(p => p.bestSale);
+  }
+  click() {
+    console.log('Clicked!');
   }
 }
